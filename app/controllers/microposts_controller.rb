@@ -13,10 +13,10 @@ class MicropostsController < ApplicationController
 		end
 	end
 
-	# def show
-	# 	@micropost = Micropost.find(params[:id])
-	# 	@comments = @micropost.comments.paginate(page: params[:page])
-	# end
+	def show
+		@micropost = Micropost.find(params[:id])
+		@comments = @micropost.comments.paginate(page: params[:page])
+	end
 
 	def destroy
 		@micropost.destroy
