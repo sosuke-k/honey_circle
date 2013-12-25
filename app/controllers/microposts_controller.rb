@@ -16,6 +16,7 @@ class MicropostsController < ApplicationController
 	def show
 		@micropost = Micropost.find(params[:id])
 		@comments = @micropost.comments.paginate(page: params[:page])
+		@comment = current_user.comments.build if signed_in?
 	end
 
 	def destroy
