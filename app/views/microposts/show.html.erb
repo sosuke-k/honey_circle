@@ -1,0 +1,32 @@
+<% provide(:title, @micropost.id) %>
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>
+				<%= @micropost.id %>
+				<%= @micropost.created_at %> <br>
+				<%= @micropost.content %>
+				<%#= @user.email %>
+			</h1>
+		</section>
+	</aside>
+	<div class="span8">
+
+
+		<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
+		<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
+		<span class="js-toggle_star" data-num="<%= @micropost.id %>">スターボタン</span>
+		<%= submit_tag "作成" %>
+		<% end %>
+
+
+		<ol class="comments">
+			<h5>こめんと</h5>
+			<%= render @comments %>
+		</ol>
+		<%= will_paginate @comments %>
+	</div>
+	<section>
+		<%= render 'shared/comment_form' %>
+	</section>
+</div>
