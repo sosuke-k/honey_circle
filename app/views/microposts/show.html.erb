@@ -12,6 +12,10 @@
 	</aside>
 	<div class="span8">
 
+		<%= @micropost.stars.length %>
+		<% @micropost.stars.each do |s| %>
+			<%= image_tag s.user.image %>
+		<% end %>
 
 		<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
 		<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
