@@ -3,6 +3,7 @@ SampleApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :show, :destroy]
   resources :comments, only: [:create, :destroy]
+  resources :stars, only: [:create, :destroy]
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
@@ -10,6 +11,7 @@ SampleApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match 'toggle_star', :to => 'star#toggle_star', :via => [:get, :post]
 
   #omniauth
   get "/auth/:provider/callback" => "sessions#create"
