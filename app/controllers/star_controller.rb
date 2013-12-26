@@ -1,16 +1,23 @@
 class StarController < ApplicationController
 	before_action :set_micropost
 	def toggle_star
-		@star = current_user.stars.new(:user_id => current_user.id, :micropost_id => @micropost.id)
-		respond_to do |format|
-			if @star.save
-				format.html { redirect_to @micropost, notice: 'star was successfully created.' }
-				format.json { head :no_content }
-			else
-				format.html { render text: @star.errors.full_messages, status: :unprocessable_entity }
-				format.json { render json: @star.errors, status: :unprocessable_entity }
+		@starsArray = Star.find(:all, :conditions => { :user_id => current_user.id, :micropost_id => @micropost.id })
+		if @starsArray == [] #まだStarが付いていなければ
+			@star = stars.new(:user_id => current_user.id, :micropost_id => @micropost.id)
+
+			respond_to do |format|
+				if @star.save
+					format.html { redirect_to @micropost, notice: 'star was successfully created.' }
+					format.json { head :no_content }
+				else
+					format.html { render text: @star.errors.full_messages, status: :unprocessable_entity }
+					format.json { render json: @star.errors, status: :unprocessable_entity }
+				end
 			end
+		else
+			@starsArray.each{|s| s.destroy}
 		end
+
 	end
 
 # スターを追加
