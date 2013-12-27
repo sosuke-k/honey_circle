@@ -25,6 +25,9 @@ header{
   background:url('images/honeyCircle.png');
 }
 
+.navbar-inverse .brand, .navbar-inverse .nav > li > a{
+  text-shadow: none;
+}
 
 /* mixins, variables, etc. */
 
@@ -175,7 +178,10 @@ input {
   line-height: 37px;
 }
 .timestamp {
-  color: $grayLight;
+  // color: $grayLight;
+  color:#fff;
+  margin-right: 6px;
+  padding: 0px 2px 1px 6px;
 }
 .gravatar {
   float: left;

@@ -15,3 +15,13 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+// var colors = ['#64B5C9','#64C9B3','#74BD88','#D7B047','#CF7F5B','#CE587F','#ad5fd8']
+var colors = ['#64C9B3','#74BD88','#D7B047','#CF7F5B','#CE587F','#ad5fd8']
+
+$(window).load(function() {
+	for (var i = 0; i < $('.timestamp').length; i++) {
+		$('.timestamp').eq(i).css({'background':colors[i % colors.length]})
+	}
+  // setTimeout($('.alert').fadeOut(), 5000)
+});

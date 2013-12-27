@@ -3,14 +3,16 @@
 	<aside class="span4">
 		<section>
 			<h1>
-				<%= @micropost.id %>
-				<%= @micropost.created_at %> <br>
+				id: <%= @micropost.id %>
+				<%#= @micropost.created_at %> <br>
 				<%= @micropost.content %>
 				<%#= @user.email %>
 			</h1>
 		</section>
 	</aside>
 	<div class="span8">
+		<span>詳細: </span>
+		<%= @micropost.detail %>
 
 		<%= @micropost.stars.length %>
 		<% @micropost.stars.each do |s| %>
