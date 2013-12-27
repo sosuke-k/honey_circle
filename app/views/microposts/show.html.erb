@@ -19,9 +19,22 @@
 
 		<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
 		<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
-		<span class="js-toggle_star" data-num="<%= @micropost.id %>">スターボタン</span>
-		<%= submit_tag "作成" %>
+		<!-- <span class="js-toggle_star" data-num="<%= @micropost.id %>">スターボタン</span> -->
+		<%= submit_tag "一緒にやりたい！" %>
 		<% end %>
+		<script>
+
+		console.log("<%= current_user.name %>")
+		current_userID = <%= current_user.id %>;
+		// ふぁぼ欄に追加or削除
+		// $(favo欄).prepend(hoge)
+
+		$('form[name="toggle_star"]')
+		.bind("ajax:loading", function(xhr){alert('loading')})
+		.bind("ajax:success", function(data, status, xhr){alert('success');console.log(xhr);})
+		.bind("ajax:complete", function(xhr){alert('complete');console.log(xhr)})
+		.bind("ajax:failure", function(xhr){alert('failure')});
+		</script>
 
 
 		<ol class="comments">

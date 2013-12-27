@@ -3,8 +3,8 @@
 	<aside class="span4">
 		<section>
 			<h1>
-				<%= showProfImage @user %>
-				<%= @user.name %>
+				<%= showProfImage @user %><br>
+				<%= @user.name %><br>
 				<%#= @user.created_at %>
 				<%= link_to "link to "+ @user.provider, "http://twitter.com/"+@user.nickname, :target=>["_blank"] %>
 				<%#= @user.email %>

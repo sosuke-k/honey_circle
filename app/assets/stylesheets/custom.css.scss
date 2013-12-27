@@ -2,7 +2,7 @@
 
 @font-face{
   font-family: "mplus-1c-thin";
-  src: url(http://l0o0l.info/cs/jouho2/mplus-1c-thin.ttf) format("opentype");
+  // src: url(http://l0o0l.info/cs/jouho2/mplus-1c-thin.ttf) format("opentype");
 }
 
 body,html{
@@ -17,6 +17,14 @@ header{
 .span4{
   margin-top:15px;
 }
+.navbar-inverse .navbar-inner{
+  background:#fff;
+}
+#logo{
+  text-indent: -9999px;
+  background:url('images/honeyCircle.png');
+}
+
 
 /* mixins, variables, etc. */
 
@@ -90,9 +98,9 @@ aside {
       line-height: 1;
     }
     h1 {
-      font-size: 2em;
-      text-align: left;
-      letter-spacing: -1px;
+      // font-size: 2em;
+      // text-align: left;
+      // letter-spacing: -1px;
       margin-bottom: 3px;
       margin-top: 0px;
     }
@@ -107,11 +115,14 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
+  border: 1px ridged #5C4949;
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 15px 0;
   @include box_sizing;
+  font-family: "mplus-1c-thin";
+  border-radius:22px;
+  background: #fff;
 }
 
 input {
@@ -161,7 +172,7 @@ input {
 .content {
   display: block;
   font-size: 32px;
-  line-height: 30px;
+  line-height: 37px;
 }
 .timestamp {
   color: $grayLight;
