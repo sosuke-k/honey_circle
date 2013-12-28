@@ -7,12 +7,19 @@
 
 body,html{
   font-family:"mplus-1c-thin";
+  font-weight: 100;
 }
 h3{
-  font-size: 78px;
+  font-size: 75px;
+  font-weight: 100;
 }
+h1,h2{
+  font-weight: 100;
+}
+
+
 header{
-  font-family:"mplus-1c-light";
+  // font-family:"mplus-1c-light";
 }
 .span4{
   margin-top:15px;
@@ -22,11 +29,21 @@ header{
 }
 #logo{
   text-indent: -9999px;
-  background:url('images/honeyCircle.png');
+  width:381px;
+  height:56px;
+  display:block;
+  background:url('http://l0o0l.info/material/images/honeyCircle_title.png');
+  // font-family: "Hextremum LDR";
+  color:transparent;
+  float: left;
 }
 
 .navbar-inverse .brand, .navbar-inverse .nav > li > a{
   text-shadow: none;
+}
+
+input[type="submit"]{
+  outline: 0px;
 }
 
 /* mixins, variables, etc. */
