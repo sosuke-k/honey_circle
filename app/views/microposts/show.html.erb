@@ -11,31 +11,65 @@
 		</section>
 	</aside>
 	<div class="span8">
-		<span>詳細: </span>
-		<%= @micropost.detail %>
+		<div class='detail'>
+			<span>詳細: </span>
+			<%= @micropost.detail %>
+		</div>
+			<br>
 
-		<%= @micropost.stars.length %>
-		<% @micropost.stars.each do |s| %>
-			<%= image_tag s.user.image %>
-		<% end %>
+			<div class="responses">
+				<div class="stars">
+					<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
+					<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
+					<!-- <span class="js-toggle_star" data-num="<%= @micropost.id %>">スターボタン</span> -->
+					<%= submit_tag "一緒にやりたい！" %>
+					<% end %>
+					<%= @micropost.stars.length %>
+					<% @micropost.stars.each do |s| %>
+					<%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+					<% end %>
+				</div>
+<br>
 
-		<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
-		<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
-		<!-- <span class="js-toggle_star" data-num="<%= @micropost.id %>">スターボタン</span> -->
-		<%= submit_tag "一緒にやりたい！" %>
-		<% end %>
+		<div class="interests">
+			<%= form_tag({:controller => 'interest', :action => 'toggle_interest'}, {:name => 'toggle_interest', :remote => true}) do %>
+			<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
+			<!-- <span class="js-toggle_interest" data-num="<%= @micropost.id %>">スターボタン</span> -->
+			<%= submit_tag "興味ある！" %>
+			<% end %>
+			<%= @micropost.interests.length %>
+			<% @micropost.interests.each do |s| %>
+			        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+			<% end %>
+		</div>
+			</div>
+
+
 		<script>
 
 		console.log("<%= current_user.name %>")
 		current_userID = <%= current_user.id %>;
 		// ふぁぼ欄に追加or削除
 		// $(favo欄).prepend(hoge)
-
 		$('form[name="toggle_star"]')
-		.bind("ajax:loading", function(xhr){alert('loading')})
-		.bind("ajax:success", function(data, status, xhr){alert('success');console.log(xhr);})
-		.bind("ajax:complete", function(xhr){alert('complete');console.log(xhr)})
-		.bind("ajax:failure", function(xhr){alert('failure')});
+		// .bind("ajax:loading", function(xhr){alert('loading')})
+		.bind("ajax:success", function(data, status, xhr){
+			// console.log(data['action'])
+			if(status.action == 'add'){
+				var imgURL = "<%= current_user.image %>"
+				var imgDOM = "<a href=/users/"+current_userID+"><img src="+imgURL+" alt='' width='22' /></a> "
+				$(".stars").append(imgDOM);
+			}else if (status.action == 'remove') {
+				$(".stars").find("a[href=\"/users/"+current_userID+"\"]").remove()
+			};
+
+
+		})
+		// .bind("ajax:complete", function(xhr){
+			// alert('complete');console.log(xhr)
+
+		// })
+		// .bind("ajax:failure", function(xhr){alert('failure')});
 		</script>
 
 
@@ -44,8 +78,8 @@
 			<%= render @comments %>
 		</ol>
 		<%= will_paginate @comments %>
-	</div>
 	<section>
 		<%= render 'shared/comment_form' %>
 	</section>
+	</div>
 </div>

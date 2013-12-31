@@ -2,15 +2,15 @@
 <%= render 'shared/error_messages', object: f.object %>
 <div class="field">
 	やりたいこと(140文字以内)
-	<%= f.text_area :content, placeholder: "Compose new micropost..." %>
+	<%= f.text_area :content, placeholder: "たとえば\" railsの勉強会を開きたい！\"など" %>
 	<hr>
 	以下オプションくコ:彡<br>
 	(表示非表示でトグる) <br>
 	詳細(65535文字以内):
-	<%= f.text_area :detail, placeholder: "Compose detailed " %>
+	<%= f.text_area :detail, placeholder: "140文字で書ききれない詳細をこちらに" %>
 
 	やりたい度:
-	<%= f.select :desire, やりたい度: ['100%', 2,3]  %>
+	<%= f.select :desire, やりたい度: ["1. かなりやりたいヽ(‘ω’)ﾉ三ヽ(‘ω’)ﾉ", '2. やりたい(｀・ω・´)', '3. ちょっとやりたい(´・ω・｀)']  %>
 
 </div>
 <%= f.submit "Post", class: "btn btn-large btn-primary" %>
