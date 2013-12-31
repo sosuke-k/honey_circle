@@ -24,7 +24,7 @@
 					<!-- <span class="js-toggle_star" data-num="<%= @micropost.id %>">スターボタン</span> -->
 					<%= submit_tag "一緒にやりたい！" %>
 					<% end %>
-					<%= @micropost.stars.length %>
+					<span id="starsNum"><%= @micropost.stars.length %></span>
 					<% @micropost.stars.each do |s| %>
 					<%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
 					<% end %>
@@ -37,7 +37,7 @@
 			<!-- <span class="js-toggle_interest" data-num="<%= @micropost.id %>">スターボタン</span> -->
 			<%= submit_tag "興味ある！" %>
 			<% end %>
-			<%= @micropost.interests.length %>
+			<span id="interestsNum"><%= @micropost.interests.length %></span>
 			<% @micropost.interests.each do |s| %>
 			        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
 			<% end %>
@@ -51,20 +51,30 @@
 		current_userID = <%= current_user.id %>;
 		// ふぁぼ欄に追加or削除
 		// $(favo欄).prepend(hoge)
-		$('form[name="toggle_star"]')
-		// .bind("ajax:loading", function(xhr){alert('loading')})
-		.bind("ajax:success", function(data, status, xhr){
-			// console.log(data['action'])
-			if(status.action == 'add'){
-				var imgURL = "<%= current_user.image %>"
-				var imgDOM = "<a href=/users/"+current_userID+"><img src="+imgURL+" alt='' width='22' /></a> "
-				$(".stars").append(imgDOM);
-			}else if (status.action == 'remove') {
-				$(".stars").find("a[href=\"/users/"+current_userID+"\"]").remove()
-			};
+
+		jQuery.each(['star','interest'], function (i,val) {
+			$("form[name=\"toggle_"+val+"\"]")
+			// .bind("ajax:loading", function(xhr){alert('loading')})
+			.bind("ajax:success", function(data, status, xhr){
+				if(status.action == 'add'){
+					var imgURL = "<%= current_user.image %>"
+					var imgDOM = "<a href=/users/"+current_userID+"><img src="+imgURL+" alt='' width='22' /></a> "
+					$("."+val+"s").append(imgDOM);
+
+					// 数字インクリメント
+						var num = $('#'+val+'sNum').html();
+						$('#'+val+'sNum').html(parseInt(num)+1)
+
+				}else if (status.action == 'remove') {
+					$("."+val+"s").find("a[href=\"/users/"+current_userID+"\"]").remove()
+					// 数字デクリメント
+						var num = $('#'+val+'sNum').html();
+						$('#'+val+'sNum').html(parseInt(num)-1)
+				};
+			})
+		});
 
 
-		})
 		// .bind("ajax:complete", function(xhr){
 			// alert('complete');console.log(xhr)
 
