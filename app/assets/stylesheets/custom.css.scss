@@ -2,8 +2,10 @@
 
 @font-face{
   font-family: "mplus-1c-thin";
-  // src: url(http://l0o0l.info/cs/jouho2/mplus-1c-thin.ttf) format("opentype");
+  src: url(http://l0o0l.info/cs/jouho2/mplus-1c-thin.ttf) format("opentype");
 }
+
+
 
 body,html{
   font-family:"mplus-1c-thin";
@@ -12,11 +14,31 @@ body,html{
 h3{
   font-size: 75px;
   font-weight: 100;
+  letter-spacing: 0px;
 }
 h1,h2{
   font-weight: 100;
 }
+p{
+  margin:0 8px 10px;
+}
 
+ol{
+  margin:30px 5px 14px 24px;
+}
+
+
+.starInfo, .interestInfo{
+  float: left;
+  margin:5px;
+}
+.star_button, .interest_button{
+  float: left;
+}
+
+.interests, .interestedInfo{
+  clear: both;
+}
 
 header{
   // font-family:"mplus-1c-light";
@@ -133,16 +155,21 @@ aside {
 }
 
 /* forms */
+form{
+  display:inline;
+  margin: 0 0 6px;
+}
 
 input, textarea, select, .uneditable-input {
   border: 1px ridged #5C4949;
   width: 100%;
-  padding: 10px;
-  margin: 15px 0;
+  // padding: 10px;
+  // margin: 15px 0;
   @include box_sizing;
   font-family: "mplus-1c-thin";
   border-radius:22px;
   background: #fff;
+  line-height: auto;
 }
 
 input {
@@ -187,18 +214,21 @@ input {
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
+    clear:both;
   }
 }
 .content {
   display: block;
   font-size: 32px;
   line-height: 37px;
+  margin:15px 0;
 }
 .timestamp {
   // color: $grayLight;
   color:#fff;
-  margin-right: 6px;
+  margin: 12px;
   padding: 0px 2px 1px 6px;
+  float: right;
 }
 .gravatar {
   float: left;
