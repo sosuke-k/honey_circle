@@ -3,13 +3,17 @@
 @font-face{
   font-family: "mplus-1c-thin";
   src: url(http://l0o0l.info/cs/jouho2/mplus-1c-thin.ttf) format("opentype");
+  font-weight: 100;
 }
 
 
 
 body,html{
-  font-family:"mplus-1c-thin";
   font-weight: 100;
+  font-family: sans-serif;
+}
+h1,h2,h3,h4,h5,h6, .content{
+  font-family:"mplus-1c-thin";
 }
 h3{
   font-size: 75px;
