@@ -4,3 +4,41 @@
   </ol>
   <%= will_paginate @feed_items %>
 <% end %>
+<script>
+		current_userID = <%= current_user.id %>;
+		// ふぁぼ欄に追加or削除
+		// $(favo欄).prepend(hoge)
+
+		jQuery.each(['star','interest'], function (i,val) {
+			$("form[name=\"toggle_"+val+"\"]")
+			// .bind("ajax:loading", function(xhr){alert('loading')})
+			.bind("ajax:success", function(data, status, xhr){
+				if(status.action == 'add'){
+					var imgURL = "<%= current_user.image %>"
+					var imgDOM = "<a href=/users/"+current_userID+"><img src="+imgURL+" alt='' width='22' /></a> "
+					$('#'+status.micropost_id).children('.'+val+'s').children('.'+val+'Info').append(imgDOM);
+					// 数字インクリメント
+						var num = $('#'+status.micropost_id).children('.'+val+'s').children('.'+val+'Info').children('.'+val+'sNum').html()
+						$('#'+status.micropost_id).children('.'+val+'s').children('.'+val+'Info').children('.'+val+'sNum').html(parseInt(num)+1)
+
+						// $('.'+val+'_submit').addClass('already')
+						$('#'+status.micropost_id).children('.'+val+'s').children('form').children('input').addClass('already')
+
+
+
+				}else if (status.action == 'remove') {
+					// $("."+val+"s").find("a[href=\"/users/"+current_userID+"\"]").remove()
+					$('#'+status.micropost_id).children('.'+val+'s').find("a[href=\"/users/"+current_userID+"\"]").remove()
+					// 数字デクリメント
+						var num = $('#'+status.micropost_id).children('.'+val+'s').children('.'+val+'Info').children('.'+val+'sNum').html()
+						$('#'+status.micropost_id).children('.'+val+'s').children('.'+val+'Info').children('.'+val+'sNum').html(parseInt(num)-1)
+
+						console.log(status.micropost_id)
+						$('#'+status.micropost_id).children('.'+val+'s').children('form').children('input').removeClass('already')
+
+
+				};
+			})
+		});
+
+</script>

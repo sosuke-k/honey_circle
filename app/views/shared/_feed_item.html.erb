@@ -11,7 +11,8 @@
     <div class="staredInfo">
       <% if feed_item.stars.length > 0 %>
     <br>
-      <p style='float: left;'>一緒にやりたい！: <%= feed_item.stars.length %>人 </p>
+      <p style='float: left;'>一緒にやりたい！:
+      <span class='starsNum'><%= feed_item.stars.length %></span>人</p>
         <% feed_item.stars.each do |s| %>
           <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
         <% end %>
@@ -21,7 +22,9 @@
     <% if feed_item.interests.length > 0 %>
     <br>
     <div class="interestedInfo">
-      <p style='float: left;'>興味ある！: <%= feed_item.interests.length %>人 </p>
+      <p style='float: left;'>興味ある！:
+      <span class='interestsNum'><%= feed_item.interests.length %></span>人
+         </p>
       <% feed_item.interests.each do |s| %>
         <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
         <% end %>
@@ -34,7 +37,7 @@
     <%= submit_tag "一緒にやりたい！", {:class => 'star_submit' } %>
     <% end %>
     <div class='starInfo'>
-      <%= feed_item.stars.length %>人
+      <span class='starsNum'><%= feed_item.stars.length %></span>人
       <% feed_item.stars.each do |s| %>
         <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
           <% if s.user == current_user %>
@@ -53,7 +56,7 @@
       <%= submit_tag "興味ある！" %>
       <% end %>
       <div class='interestInfo'>
-        <%= feed_item.interests.length %>人
+        <span class='interestsNum'><%= feed_item.interests.length %></span>人
         <% feed_item.interests.each do |s| %>
         <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
         <% end %>

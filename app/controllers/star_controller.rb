@@ -9,17 +9,19 @@ class StarController < ApplicationController
 				if @star.save
 					# flash[:notice] = 'star was successfully created.'
 					# format.html { redirect_to @micropost }
-					format.json {render json: {:action => "add", :result => "success", :user => current_user.name }}
+					format.json {render json: {:action => "add", :result => "success", :user => current_user.name, :micropost_id => @star.micropost.id }}
 				else
 					format.html { render text: @star.errors.full_messages, status: :unprocessable_entity }
 					format.json { render json: @star.errors, status: :unprocessable_entity }
 				end
 			end
 		else
-			@starsArray.each{|s| s.destroy}
-			respond_to do |format|
-				format.json {render :json => {:action => "remove", :result => "success", :user => current_user.name }}
-			end
+			@starsArray.each{|s|
+				s.destroy
+				respond_to do |format|
+					format.json {render :json => {:action => "remove", :result => "success", :user => current_user.name, :micropost_id => s.micropost.id }}
+				end
+			}
 		end
 
 	end
