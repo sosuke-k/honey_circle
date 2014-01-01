@@ -40,7 +40,7 @@
 			<%= form_tag({:controller => 'interest', :action => 'toggle_interest'}, {:name => 'toggle_interest', :remote => true}) do %>
 			<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
 			<!-- <span class="js-toggle_interest" data-num="<%= @micropost.id %>">スターボタン</span> -->
-			<%= submit_tag "興味ある！" %>
+			<%= submit_tag "興味ある！", {:class => 'interest_submit'}  %>
 			<% end %>
 			<span id="interestsNum"><%= @micropost.interests.length %></span>
 			<% @micropost.interests.each do |s| %>
@@ -70,7 +70,7 @@
 						var num = $('#'+val+'sNum').html();
 						$('#'+val+'sNum').html(parseInt(num)+1)
 
-						$('.star_submit').addClass('already')
+						$('.'+val+'_submit').addClass('already')
 
 
 				}else if (status.action == 'remove') {
@@ -79,7 +79,7 @@
 						var num = $('#'+val+'sNum').html();
 						$('#'+val+'sNum').html(parseInt(num)-1)
 
-						$('.star_submit').removeClass('already')
+						$('.'+val+'_submit').removeClass('already')
 
 				};
 			})
