@@ -31,16 +31,15 @@
   <div class='stars'>
     <%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true, :class => 'star_button'}) do %>
     <input type="hidden" value="<%= feed_item.id %>" name="micropost_id">
-    <%= submit_tag "一緒にやりたい！" %>
+    <%= submit_tag "一緒にやりたい！", {:class => 'star_submit' } %>
     <% end %>
     <div class='starInfo'>
       <%= feed_item.stars.length %>人
       <% feed_item.stars.each do |s| %>
         <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
           <% if s.user == current_user %>
-            <!-- <span>already stared!</span> -->
             <script>
-              $('#'+<%= feed_item.id %>).children('.stars').children('form').children('input').css({'border':'inset'})
+              $('#'+<%= feed_item.id %>).children('.stars').children('form').children('input').addClass('already')
             </script>
           <% end %>
       <% end %>

@@ -22,11 +22,16 @@
 					<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
 					<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
 
-					<%= submit_tag "一緒にやりたい！" %>
+					<%= submit_tag "一緒にやりたい！" , {:class => 'star_submit'} %>
 					<% end %>
 					<span id="starsNum"><%= @micropost.stars.length %></span>
 					<% @micropost.stars.each do |s| %>
-					<%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+						<%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+						<% if s.user == current_user %>
+							<script>
+								$('.star_submit').addClass('already')
+							</script>
+						<% end %>
 					<% end %>
 				</div>
 <br>
@@ -65,11 +70,17 @@
 						var num = $('#'+val+'sNum').html();
 						$('#'+val+'sNum').html(parseInt(num)+1)
 
+						$('.star_submit').addClass('already')
+
+
 				}else if (status.action == 'remove') {
 					$("."+val+"s").find("a[href=\"/users/"+current_userID+"\"]").remove()
 					// 数字デクリメント
 						var num = $('#'+val+'sNum').html();
 						$('#'+val+'sNum').html(parseInt(num)-1)
+
+						$('.star_submit').removeClass('already')
+
 				};
 			})
 		});
