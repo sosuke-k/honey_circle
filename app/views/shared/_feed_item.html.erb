@@ -12,9 +12,9 @@
       <% if feed_item.stars.length > 0 %>
     <br>
       <p style='float: left;'>一緒にやりたい！: <%= feed_item.stars.length %>人 </p>
-      <% feed_item.stars.each do |s| %>
-      <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
-      <% end %>
+        <% feed_item.stars.each do |s| %>
+          <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+        <% end %>
       <% end %>
     </div>
     <!-- 興味ある人がいる場合 -->
@@ -36,7 +36,13 @@
     <div class='starInfo'>
       <%= feed_item.stars.length %>人
       <% feed_item.stars.each do |s| %>
-      <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+          <% if s.user == current_user %>
+            <!-- <span>already stared!</span> -->
+            <script>
+              $('#'+<%= feed_item.id %>).children('.stars').children('form').children('input').css({'border':'inset'})
+            </script>
+          <% end %>
       <% end %>
     </div>
   </div>

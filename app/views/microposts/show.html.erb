@@ -21,7 +21,7 @@
 				<div class="stars">
 					<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
 					<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
-					<!-- <span class="js-toggle_star" data-num="<%= @micropost.id %>">スターボタン</span> -->
+
 					<%= submit_tag "一緒にやりたい！" %>
 					<% end %>
 					<span id="starsNum"><%= @micropost.stars.length %></span>

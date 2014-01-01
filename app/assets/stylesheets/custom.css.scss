@@ -2,6 +2,7 @@
 
 @font-face{
   font-family: "mplus-1c-thin";
+  src: url(http://l0o0l.info/material/fonts/Hannari.otf) format("opentype");
   src: url(http://l0o0l.info/cs/jouho2/mplus-1c-thin.ttf) format("opentype");
   font-weight: 100;
 }
@@ -16,9 +17,9 @@ h1,h2,h3,h4,h5,h6, .content{
   font-family:"mplus-1c-thin";
 }
 h3{
-  font-size: 75px;
+  font-size: 78px;
   font-weight: 100;
-  letter-spacing: 0px;
+  letter-spacing: -6px;
 }
 h1,h2{
   font-weight: 100;
@@ -170,14 +171,14 @@ input, textarea, select, .uneditable-input {
   // padding: 10px;
   // margin: 15px 0;
   @include box_sizing;
-  font-family: "mplus-1c-thin";
+  // font-family: "mplus-1c-thin";
   border-radius:22px;
   background: #fff;
   line-height: auto;
 }
 
 input {
-  height: auto !important;
+  // height: auto !important;
 }
 
 #error_explanation {
@@ -233,6 +234,7 @@ input {
   margin: 12px;
   padding: 0px 2px 1px 6px;
   float: right;
+  border-radius: 10px;
 }
 .gravatar {
   float: left;
@@ -243,4 +245,55 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+
+// button
+.btn {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  // font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  text-shadow: none;
+}
+.btn-2i {
+  border-radius: 50%;
+  background:#0C9EE7;
+  // width: 190px;
+  height: 90px;
+  padding: 0;
+  color:#fff;
+  // box-shadow: 0 4px #025883;
+  outline: none;
+}
+
+.btn-2i:hover {
+  outline: none;
+  background:#0C9EE7;
+  box-shadow: 0 4px #025883;
+  top: 2px;
+  color:#fff;
+}
+
+.btn-2i:active {
+  background:#0C9EE7;
+  box-shadow: 0 0 #025883;
+  top: 6px;
+  color:#fff;
+
+}
+.span4 input[type="submit"],{
+  width: 90px;
 }
