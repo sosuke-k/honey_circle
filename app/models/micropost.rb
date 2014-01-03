@@ -3,6 +3,7 @@ class Micropost < ActiveRecord::Base
 	has_many :comments
 	default_scope -> { order('created_at DESC') }
 	validates :content, presence: true, length: { maximum: 80 }
+	validates :detail, length: { maximum: 65535 }
 	validates :user_id, presence: true
 
 	has_many :stars, :dependent => :destroy

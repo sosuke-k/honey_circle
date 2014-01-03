@@ -39,6 +39,9 @@ class MicropostsController < ApplicationController
 		@micropost = Micropost.find(params[:id])
 		@comments = @micropost.comments.paginate(page: params[:page])
 		@comment = current_user.comments.build if signed_in?
+		# respond_to do |format|
+		# 	format.json {render :json => @micropost, :status => 201 }
+		# end
 	end
 
 	def destroy

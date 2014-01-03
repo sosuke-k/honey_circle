@@ -78,6 +78,9 @@ header{
 input[type="submit"]{
   outline: 0px;
 }
+.pagination{
+  margin:60px 0 0;
+}
 
 /* mixins, variables, etc. */
 
@@ -300,6 +303,10 @@ aside {
   color:#fff;
 
 }
+button.btn, input[type="submit"].btn{
+  width: 90px;
+}
+
 .span4 input[type="submit"],{
   width: 90px;
 }

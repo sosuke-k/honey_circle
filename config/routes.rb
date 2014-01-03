@@ -1,7 +1,7 @@
 SampleApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :show, :destroy]
+  resources :microposts, only: [:create, :show, :destroy, :api]
   resources :comments, only: [:create, :destroy]
   resources :stars, only: [:create, :destroy]
   resources :interests, only: [:create, :destroy]
@@ -12,6 +12,7 @@ SampleApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/api', to: 'static_pages#api', via: 'get'
   match 'toggle_star', :to => 'star#toggle_star', :via => [:get, :post]
   match 'toggle_interest', :to => 'interest#toggle_interest', :via => [:get, :post]
 

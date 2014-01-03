@@ -14,4 +14,12 @@ class StaticPagesController < ApplicationController
 
 	def contact
 	end
+
+
+	def api
+		microposts = Micropost.all
+		respond_to do |format|
+			format.json {render :json => microposts}
+		end
+	end
 end
