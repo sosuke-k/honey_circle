@@ -1,13 +1,13 @@
 <%= form_for(@micropost) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 <div class="field">
-	やりたいこと(80文字以内)
+	<span>やりたいこと(80文字以内)</span> <span class='count'>80</span>
 	<%= f.text_area :content, placeholder: "たとえば\" railsの勉強会を開きたい！\"など" %>
 	<hr>
-	以下オプションくコ:彡<br>
-	(表示非表示でトグる) <br>
+	<!-- 以下オプションくコ:彡<br> -->
+	<!-- (表示非表示でトグる) <br> -->
 	詳細(65535文字以内):
-	<%= f.text_area :detail, placeholder: "80文字で書ききれない場合は詳細をこちらに" %>
+	<%= f.text_area :detail, placeholder: "具体的な内容をこちらに。必要無い場合は記入しなくてもおｋ" %>
 
 	<!-- やりたい度: -->
 	<%#= f.select :desire, やりたい度: ["1. かなりやりたいヽ(‘ω’)ﾉ三ヽ(‘ω’)ﾉ", '2. やりたい(｀・ω・´)', '3. ちょっとやりたい(´・ω・｀)']  %>
@@ -15,3 +15,15 @@
 </div>
 <%= f.submit "Post", class: "btn btn-2i" %>
 <% end %>
+<script>
+$(function(){
+    $('#micropost_content').bind('keyup',function(){
+        var thisValueLength = 80 - $(this).val().length;
+        $('.count').html(thisValueLength);
+        if(thisValueLength < 0)
+        	$('.count').css({'color':'red'})
+        else
+        	$('.count').css({'color':'black'})
+    });
+});
+</script>

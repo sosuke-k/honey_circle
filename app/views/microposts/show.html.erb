@@ -11,10 +11,12 @@
 		</section>
 	</aside>
 	<div class="span8">
-		<div class='detail'>
-			<span>詳細: </span>
-			<%= @micropost.detail %>
-		</div>
+		<% if @micropost.detail? %>
+			<div class='detail'>
+				<span>詳細: </span>
+				<p><%= simple_format @micropost.detail %></p>
+			</div>
+		<% end %>
 			<br>
 
 			<div class="responses">
@@ -45,6 +47,11 @@
 			<span id="interestsNum"><%= @micropost.interests.length %></span>
 			<% @micropost.interests.each do |s| %>
 			        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+			        <% if s.user == current_user %>
+				        <script>
+					        $('.interest_submit').addClass('already')
+				        </script>
+			        <% end %>
 			<% end %>
 		</div>
 			</div>
@@ -85,6 +92,10 @@
 			})
 		});
 
+
+		var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+
+		$('.detail').html($('.detail').html().replace(exp,"<a href='$1'>$1</a>"));
 
 		// .bind("ajax:complete", function(xhr){
 			// alert('complete');console.log(xhr)

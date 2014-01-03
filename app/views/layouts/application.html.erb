@@ -21,7 +21,7 @@
 		Welcome <%= current_user.name %>!
 		<%= link_to "Sign Out", signout_path %>
 		<% else %>
-		<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+		<%= link_to "Sign in with Twitter", "/auth/twitter" , :class => 'signin' %>
 		<% end %>
 
 		<%= debug(params) if Rails.env.development? %>
