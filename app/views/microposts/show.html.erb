@@ -1,14 +1,18 @@
-<% provide(:title, @micropost.id) %>
+<% provide(:title, @micropost.content) %>
 <div class="row">
 	<aside class="span4">
 		<section>
 			<h1>
-				id: <%= @micropost.id %>
+				id: <%= @micropost.id %> <br>
+				<%= link_to showProfImage @micropost.user%>
 				<%#= @micropost.created_at %> <br>
 				<%= @micropost.content %>
 				<%#= @user.email %>
 			</h1>
 		</section>
+		<hr>
+		<%= render 'layouts/newsfeed' %>
+
 	</aside>
 	<div class="span8">
 		<% if @micropost.detail? %>
@@ -21,10 +25,15 @@
 
 			<div class="responses">
 				<div class="stars">
+					<% if current_user == @micropost.user %>
+						一緒にやりたい！:
+					<% else %>
 					<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
 					<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
 
 					<%= submit_tag "一緒にやりたい！" , {:class => 'star_submit'} %>
+					<% end %>
+
 					<% end %>
 					<span id="starsNum"><%= @micropost.stars.length %></span>
 					<% @micropost.stars.each do |s| %>
@@ -39,10 +48,14 @@
 <br>
 
 		<div class="interests">
-			<%= form_tag({:controller => 'interest', :action => 'toggle_interest'}, {:name => 'toggle_interest', :remote => true}) do %>
-			<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
-			<!-- <span class="js-toggle_interest" data-num="<%= @micropost.id %>">スターボタン</span> -->
-			<%= submit_tag "興味ある！", {:class => 'interest_submit'}  %>
+			<% if current_user == @micropost.user %>
+				興味ある！:
+			<% else %>
+				<%= form_tag({:controller => 'interest', :action => 'toggle_interest'}, {:name => 'toggle_interest', :remote => true}) do %>
+				<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
+				<!-- <span class="js-toggle_interest" data-num="<%= @micropost.id %>">スターボタン</span> -->
+				<%= submit_tag "興味ある！", {:class => 'interest_submit'}  %>
+				<% end %>
 			<% end %>
 			<span id="interestsNum"><%= @micropost.interests.length %></span>
 			<% @micropost.interests.each do |s| %>

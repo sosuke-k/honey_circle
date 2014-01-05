@@ -3,19 +3,22 @@
     <span class="user">
       <%= link_to feed_item.user.name+' ( @'+feed_item.user.nickname+' )' , feed_item.user %>
     </span>
-    <span class="content"><%= link_to feed_item.content, feed_item %></span>
-    <% if feed_item.detail? %>
-      <span>(詳細文あり)</span>
-    <% end %>
-
+    <br>
+    <div class="contentWrapper">
+      <span class="content"><%= link_to feed_item.content, feed_item %></span>
+      <% if feed_item.detail? %>
+        <span>(詳細文あり)</span>
+      <% end %>
+    </div>
   <% if current_user?(feed_item.user) %>
     <%= link_to "delete", feed_item, method: :delete, data: { confirm: "You sure?" }, title: feed_item.content, :class => 'delete_button' %>
     <!-- 一緒にやりたい人がいる場合 -->
     <div class="staredInfo">
       <% if feed_item.stars.length > 0 %>
-    <br>
-      <p style='float: left;'>一緒にやりたい！:
-      <span class='starsNum'><%= feed_item.stars.length %></span>人</p>
+        <br>
+        <p style='float: left;'>一緒にやりたい！:
+          <span class='starsNum'><%= feed_item.stars.length %></span>人
+        </p>
         <% feed_item.stars.each do |s| %>
           <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
         <% end %>
@@ -36,8 +39,8 @@
   <% else %>
   <div class='stars'>
     <%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true, :class => 'star_button'}) do %>
-    <input type="hidden" value="<%= feed_item.id %>" name="micropost_id">
-    <%= submit_tag "一緒にやりたい！", {:class => 'star_submit' } %>
+      <input type="hidden" value="<%= feed_item.id %>" name="micropost_id">
+      <%= submit_tag "一緒にやりたい！", {:class => 'star_submit' } %>
     <% end %>
     <div class='starInfo'>
       <span class='starsNum'><%= feed_item.stars.length %></span>人
