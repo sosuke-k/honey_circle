@@ -10,6 +10,13 @@
 				<%#= @user.email %>
 			</h1>
 		</section>
+		<% for item in user_actions @user  %>
+			<div class="newsfeed">
+				<%= item.class %> <br>
+				<div class="flr newsTimestamp"><%= time_ago_in_words(item.updated_at) %> ago.
+				</div> <br><br>
+			</div>
+		<% end %>
 	</aside>
 	<div class="span8">
 		<% if @user.microposts.any? %>
