@@ -12,18 +12,31 @@ module UsersHelper
   	image_tag(user.image, alt: user.name, class: "prof-image")
   end
 
-   def user_actions(user)
+  def user_actions(user)
     arr = []
     returnedArr = []
     (0..2).each{|i|
       arr.push(user.microposts.all[i])
       arr.push(user.stars.all[-i-1])
       arr.push(user.interests.all[-i-1])
-      arr.push(user.comments.all[-i-1])}
-      arr.sort_by!{|obj| obj.updated_at
+      arr.push(user.comments.all[-i-1])
+    }
+    arr.sort_by!{|obj| obj.updated_at}
+    arr.reverse!
+    (0..7).each{|i| returnedArr.push(arr[i]) }
+    return returnedArr
+  end
+
+  def user_actions_passive(user)
+    arr = []
+    returnedArr = []
+    (0..2).each{|i|
+      # arr.push(user.microposts.all[i])
+      (0..2).each{|j|
+        returnedArr.push(user.microposts.all[i].stars[j])
       }
-      arr.reverse!
-      (0..7).each{|i| returnedArr.push(arr[i]) }
-      return returnedArr
-    end
+    }
+    return returnedArr
+  end
+
 end

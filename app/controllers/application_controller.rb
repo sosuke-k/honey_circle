@@ -12,13 +12,13 @@ class ApplicationController < ActionController::Base
   		arr.push(Micropost.all[i])
   		arr.push(Star.all[-i-1])
   		arr.push(Interest.all[-i-1])
-  		arr.push(Comment.all[-i-1])}
-  		arr.sort_by!{|obj| obj.updated_at
-  		}
-  		arr.reverse!
-  		(0..9).each{|i| returnedArr.push(arr[i]) }
-  		return returnedArr
-  	end
+  		arr.push(Comment.all[-i-1])
+  	}
+  	arr.sort_by!{|obj| obj.updated_at}
+  	arr.reverse!
+  	(0..9).each{|i| returnedArr.push(arr[i]) }
+  	return returnedArr
+  end
 
 
   	helper_method :current_user
