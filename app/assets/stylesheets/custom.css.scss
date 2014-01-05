@@ -60,6 +60,7 @@ header{
 }
 .navbar-inverse .navbar-inner{
   background:#fff;
+  border-color: #fff;
 }
 #logo{
   text-indent: -9999px;
@@ -91,7 +92,7 @@ input[type="submit"]{
   color:#888;
 }
 .newsfeeds h3{
-  margin: 45px 0 20px;
+  margin: 55px 0 40px;
 }
 .newsfeed{
   clear:both;
@@ -303,7 +304,7 @@ aside {
   border-radius: 50%;
   background:#0C9EE7;
   // width: 190px;
-  height: 90px;
+  height: 70px;
   padding: 0;
   color:#fff;
   // box-shadow: 0 4px #025883;
@@ -329,11 +330,11 @@ aside {
   background:#0C9EE7;
 }
 button.btn, input[type="submit"].btn{
-  width: 90px;
+  width: 70px;
 }
 
 .span4 input[type="submit"],{
-  width: 90px;
+  width: 70px;
   outline: 0px;
 }
 
