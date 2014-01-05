@@ -21,12 +21,14 @@
 		<h3>user action passive</h3>
 		<% for item in user_actions_passive @user  %>
 		<div class="newsfeed">
-			<%= item.class %> <br>
-			<div class="flr newsTimestamp">
-				<% if item != nil %>
+			<%= '@'+@user.nickname %>
+			<span>got</span> <%= item.class %>
+			<% if item != nil %>
+			<%= 'by @'+item.user.nickname %> <br>
+				<div class="flr newsTimestamp">
 					<%= time_ago_in_words(item.updated_at) %> ago.
-				<% end %>
-			</div> <br><br>
+				</div> <br><br>
+			<% end %>
 		</div>
 		<% end %>
 
