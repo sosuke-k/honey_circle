@@ -108,7 +108,8 @@
 
 		var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 
-		$('.detail').html($('.detail').html().replace(exp,"<a href='$1'>$1</a>"));
+		if ($('.detail').html() != undefined)
+			$('.detail').html($('.detail').html().replace(exp,"<a href='$1'>$1</a>"));
 
 		// .bind("ajax:complete", function(xhr){
 			// alert('complete');console.log(xhr)

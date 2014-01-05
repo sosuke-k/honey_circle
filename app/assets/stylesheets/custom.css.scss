@@ -3,7 +3,7 @@
 @font-face{
   font-family: "mplus-1c-thin";
   src: url(http://l0o0l.info/material/fonts/Hannari.otf) format("opentype");
-  src: url(http://l0o0l.info/cs/jouho2/mplus-1c-thin.ttf) format("opentype");
+  src: url(http://l0o0l.info/material/fonts/mplus-1c-thin.ttf) format("opentype");
   font-weight: 100;
 }
 
@@ -15,6 +15,7 @@
 body,html{
   font-weight: 100;
   font-family: sans-serif;
+  word-break: break-all;
   word-break: break-word;
 }
 h1,h2,h3,h4,h5,h6, .content{
@@ -34,6 +35,9 @@ p{
 
 ol{
   margin:30px 5px 14px 24px;
+}
+img{
+  border-radius: 30px;
 }
 
 .field span{
@@ -76,12 +80,15 @@ header{
 .navbar-inverse .brand, .navbar-inverse .nav > li > a{
   text-shadow: none;
   -webkit-transform:rotate(8deg);
-  padding:17px 15px 15px;
+  -moz-transform: rotate(8deg);
+  padding:17px 8px 15px;
   outline: none;
+  margin: 2px 5px;
 }
 
 input[type="submit"]{
   outline: 0px;
+  padding: 2px 7px 2px 9px;;
 }
 .pagination{
   margin:60px 0 0;
@@ -96,9 +103,22 @@ input[type="submit"]{
 }
 .newsfeed{
   clear:both;
+  border-top: 1px dashed #EEE;
+  padding-top: 5px;
 }
 .flr{
   float: right;
+}
+
+.newsTimestamp{
+  margin-top: 2px;
+  border-right: 1px #eee solid;
+  padding-left: 3px;
+  border-bottom: 1px #eee solid;
+}
+
+.comments li{
+  clear: both;
 }
 /* mixins, variables, etc. */
 
@@ -203,10 +223,12 @@ input, textarea, select, .uneditable-input {
   border-radius:22px;
   background: #fff;
   line-height: auto;
+  border:1px inset #ccc;
+
 }
 
 input {
-  border:1px outset;
+  border:1px outset #ccc;
   // height: auto !important;
 }
 
@@ -310,6 +332,9 @@ aside {
   // box-shadow: 0 4px #025883;
   outline: none;
 }
+.center .btn-2i{
+  height:90px;
+}
 
 .btn-2i:hover {
   outline: none;
@@ -343,7 +368,7 @@ button.btn, input[type="submit"].btn{
   // background:url(http://l0o0l.info/material/icon/starIcon.png) no-repeat
 }
 .already{
-  border:1px inset;
+  border:1px inset #ccc;
 }
 
 .hero-unit h1{
@@ -352,6 +377,7 @@ button.btn, input[type="submit"].btn{
 
 .navbar .pull-right > li > .dropdown-menu{
   -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
 }
 
 .hero-unit{
@@ -368,4 +394,5 @@ button.btn, input[type="submit"].btn{
 }
 .navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus,.navbar .nav > li > a:focus, .navbar .nav > li > a:hover{
   background-color: #333;
+  border-radius: 30px;
 }
