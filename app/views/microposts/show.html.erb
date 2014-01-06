@@ -4,7 +4,7 @@
 		<section>
 			<h1>
 				id: <%= @micropost.id %> <br>
-				<%= link_to showProfImage @micropost.user%>
+				 <%= link_to image_tag(@micropost.user.image ,:size => "50x50"), @micropost.user %>
 				<%#= @micropost.created_at %> <br>
 				<%= @micropost.content %>
 				<%#= @user.email %>

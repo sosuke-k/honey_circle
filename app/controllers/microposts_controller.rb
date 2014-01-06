@@ -25,7 +25,11 @@ class MicropostsController < ApplicationController
 			# tweet += @micropost.id
 			# tweet += ' '
 			tweet = (tweet.length > 140) ? tweet[0..139].to_s : tweet
-			client.update(tweet)
+			begin
+				client.update(tweet)
+			rescue Exception => e
+				p e
+			end
 
 			flash[:success] = "Micropost created!"
 			redirect_to root_url

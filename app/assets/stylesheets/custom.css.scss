@@ -62,6 +62,10 @@ header{
 .span4{
   margin-top:15px;
 }
+.span8{
+  width: 600px;
+  margin-left: 40px;
+}
 .navbar-inverse .navbar-inner{
   background:#fff;
   border-color: #fff;
@@ -103,7 +107,7 @@ input[type="submit"]{
 }
 .newsfeed{
   clear:both;
-  border-top: 1px dashed #EEE;
+  border-top: 1px solid #eee;
   padding-top: 5px;
 }
 .flr{
