@@ -8,10 +8,10 @@ class MicropostsController < ApplicationController
 		if @micropost.save
 			require 'twitter'
 			client = Twitter::REST::Client.new do |config|
-				config.consumer_key       = 'Ql9Z3HnWGfzK7lShbEfZGg'
-				config.consumer_secret    = 'gvkHrnOmdMlGadjFvED6G8XIh8lxxEKmRhnHrWAQI'
-				config.oauth_token        = '2272330736-U9riJrJTmMQTgCSOlrwPCoL0pP1PRpV5i5a1dAO'
-				config.oauth_token_secret = 'xh8vtoaMgc6qcPW8UwMgoi2F6bnSyhin8nqnhYii7S2Ji'
+				config.consumer_key       = ENV['consumer_key']
+				config.consumer_secret    = ENV['consumer_secret']
+				config.oauth_token        = ENV['oauth_token']
+				config.oauth_token_secret = ENV['oauth_token_secret']
 			end
 			tweet = @micropost.user.name
 			tweet += " さんが投稿しました: 「"

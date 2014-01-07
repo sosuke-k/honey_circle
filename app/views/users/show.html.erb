@@ -6,33 +6,33 @@
 				<%= showProfImage @user %><br>
 				<%= @user.name %><br>
 				<%#= @user.created_at %>
-				<%= link_to "link to "+ @user.provider, "http://twitter.com/"+@user.nickname, :target=>["_blank"] %>
+				<%= link_to "@"+@user.nickname , "http://twitter.com/"+@user.nickname, :target=>["_blank"] %>
 				<%#= @user.email %>
 			</h1>
 		</section>
-		<!--
+
 		<h3>user action</h3>
-		<%# for item in user_actions @user  %>
+		<% for item in user_actions @user  %>
 			<div class="newsfeed">
-				<%#= item.class %> <br>
-				<div class="flr newsTimestamp"><%#= time_ago_in_words(item.updated_at) %> ago.
+				<%= item.class %> <br>
+				<div class="flr newsTimestamp"><%= time_ago_in_words(item.updated_at) %> ago.
 				</div> <br><br>
 			</div>
-		<%# end %>
+		<% end %>
 		<h3>user action passive</h3>
-		<%# for item in user_actions_passive @user  %>
+		<% for item in user_actions_passive @user  %>
 		<div class="newsfeed">
-			<%#= '@'+@user.nickname %>
-			<span>got</span> <%#= item.class %>
-			<%# if item != nil %>
-			<%#= 'by @'+item.user.nickname %> <br>
+			<%= '@'+@user.nickname %>
+			<span>got</span> <%= item.class %>
+			<% if item != nil %>
+			<%= 'by @'+item.user.nickname %> <br>
 				<div class="flr newsTimestamp">
-					<%#= time_ago_in_words(item.updated_at) %> ago.
+					<%= time_ago_in_words(item.updated_at) %> ago.
 				</div> <br><br>
-			<%# end %>
+			<% end %>
 		</div>
-		<%# end %>
--->
+		<% end %>
+
 	</aside>
 	<div class="span8">
 		<% if @user.microposts.any? %>

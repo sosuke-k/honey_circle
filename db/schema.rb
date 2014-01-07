@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140105210438) do
+ActiveRecord::Schema.define(version: 20140107022650) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140105210438) do
     t.string   "image"
     t.string   "stared_posts"
     t.string   "interested_posts"
+    t.datetime "last_checked"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -11,6 +11,11 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+#Railsで定数設定ファイルをgitから外して管理する方法。 - logs
+#http://yss44.hatenablog.com/entry/2013/11/30/135446
+ENV.update YAML.load_file('config/settings.yml')[Rails.env] rescue {}
+
+
 module SampleApp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

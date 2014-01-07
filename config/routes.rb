@@ -15,6 +15,7 @@ SampleApp::Application.routes.draw do
   match '/api', to: 'static_pages#api', via: 'get'
   match 'toggle_star', :to => 'star#toggle_star', :via => [:get, :post]
   match 'toggle_interest', :to => 'interest#toggle_interest', :via => [:get, :post]
+  match 'check_notification', :to => 'users#check_notification', :via => [:get, :post]
 
   #omniauth
   get "/auth/:provider/callback" => "sessions#create"

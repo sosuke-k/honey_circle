@@ -12,6 +12,36 @@ module UsersHelper
   	image_tag(user.image, alt: user.name, class: "prof-image")
   end
 
+  def user_notifications(user)
+    lasttime = user.last_checked # 最後に見た時間
+    if user.last_checked? # 既に1回でも見ていたら
+      arr = []
+      @comments = Comment.where(Comment.arel_table[:updated_at].gt(lasttime)).to_a
+      @stars = Star.where(Star.arel_table[:updated_at].gt(lasttime)).to_a
+      @interests = Interest.where(Interest.arel_table[:updated_at].gt(lasttime)).to_a
+
+      arr.push(@comments).push(@stars).push(@interests) #配列の中に配列をぶっこむ
+      arr.flatten! # 多次元配列を1次元化
+      arr.each_with_index(){|i,j|
+        if (i.micropost.user != user) #ログインユーザ以外は消す
+          arr[j] = nil
+        end
+      }
+      arr.compact! # nilを消去
+      arr.sort_by!{|obj| obj.updated_at} #時間でソート
+      returnedArr = []
+      arr.each{|i|
+        # returnedArr.push(i.micropost.user.nickname)
+        returnedArr.push('you got ' + i.class.to_s + ' from ' + i.user.nickname )
+      }
+
+      return returnedArr
+
+    else # 一回も確認してない場合
+
+    end
+  end
+
   def user_actions(user)
     arr = []
     returnedArr = []

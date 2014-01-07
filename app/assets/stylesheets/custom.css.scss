@@ -22,9 +22,11 @@ h1,h2,h3,h4,h5,h6, .content{
   font-family:"mplus-1c-thin";
 }
 h3{
-  font-size: 78px;
+  /*font-size: 78px;*/
+  font-size: 64px;
   font-weight: 100;
   letter-spacing: -6px;
+  text-align: center;
 }
 h1,h2{
   font-weight: 100;
@@ -38,6 +40,10 @@ ol{
 }
 img{
   border-radius: 30px;
+  transition:0.4s;
+  &:hover{
+    border-radius: 4px;
+  }
 }
 
 .field span{
@@ -61,10 +67,17 @@ header{
 }
 .span4{
   margin-top:15px;
+  // background: #eee;
+  padding: 10px;
+  border-radius: 35px;
+  width:283px;
+  border-left: #ddd 1px solid;
+  border-right: #ddd 1px solid;
+  // float:right;
 }
 .span8{
   width: 600px;
-  margin-left: 40px;
+  margin-left: 35px;
 }
 .navbar-inverse .navbar-inner{
   background:#fff;
@@ -88,6 +101,7 @@ header{
   padding:17px 8px 15px;
   outline: none;
   margin: 2px 5px;
+  transition:0.6s;
 }
 
 input[type="submit"]{
@@ -103,7 +117,9 @@ input[type="submit"]{
   color:#888;
 }
 .newsfeeds h3{
-  margin: 55px 0 40px;
+  margin: 55px -7px 10px;
+  font-size: 48px;
+  text-align: center;
 }
 .newsfeed{
   clear:both;
@@ -115,10 +131,14 @@ input[type="submit"]{
 }
 
 .newsTimestamp{
-  margin-top: 2px;
-  border-right: 1px #eee solid;
-  padding-left: 3px;
-  border-bottom: 1px #eee solid;
+  margin-top: 7px;
+  // border-right: 1px #eee solid;
+  // padding-left: 3px;
+  // border-bottom: 1px #eee solid;
+  // border:1px #bbb dashed;
+  border-radius: 8px;
+  background: #eee;
+  padding:0 4px;
 }
 
 .comments li{
