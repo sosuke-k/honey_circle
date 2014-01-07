@@ -1,25 +1,54 @@
+<div class="modal" id="myModal">
+  <div class="modal-header">
+    <a class="close closeBtn" data-dismiss="modal">×</a>
+    <h3>Notifications</h3>
+  </div>
+  <div class="modal-body">
+    <%= for item in (user_notifications current_user) do %>
+      <%= item %> <br>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <a href="" class="btn closeBtn" >Close</a>
+  </div>
+</div>
+<script>
+$('.modal').hide()
+$('.closeBtn').click(function(){
+  $('.modal').hide()
+})
+</script>
+
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "sample app", root_path, id: "logo" %>
+      <%= link_to "honey circle", root_path, id: "logo" %>
 
-      <%= user_notifications current_user %>
+      <%#= user_notifications current_user %>
 
-      <%= form_tag({:controller => 'users', :action => 'check_notification'}, {:name => 'check_notification', :remote => true}) do %>
-          <input type="hidden" value="1" name="micropost_id">
-          <%= submit_tag "notification" , {:class => 'notification'} %>
-      <% end %>
-      <script>
-      $("form[name='check_notification']")
-      // .bind("ajax:loading", function(xhr){alert('loading')})
-      .bind("ajax:success", function(data, status, xhr){
-        alert('you checked notifications.'+Date())
-      })
-      </script>
 
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
+          <% if signed_in? %>
+          <li>
+            <%= form_tag({:controller => 'users', :action => 'check_notification'}, {:name => 'check_notification', :remote => true}) do %>
+              <input type="hidden" value="1" name="micropost_id">
+              <%= submit_tag (user_notifications current_user).length , {:class => 'notification dropdown-toggle'} %>
+            <% end %>
+          </li>
+          <script>
+if("<%= (user_notifications current_user).length %>" == 0)
+        // $('.notification').css({'background':'rgb(255, 213, 103)'})
+        $('.notification').css({'background':'white','color':'transparent'}).remove()
+      $("form[name='check_notification']")
+      .bind("ajax:success", function(data, status, xhr){
+        // alert('you checked notifications.'+Date())
+        $('.notification').css({'background':'#fff'}).attr('value',0)
+        $('.modal').show()
+      })
+</script>
+          <% end %>
+          <!-- <li><%= link_to "Home", root_path %></li> -->
           <li><%= link_to "About", about_path %></li>
           <% if signed_in? %>
             <li><%= link_to "Users", users_path %></li>
