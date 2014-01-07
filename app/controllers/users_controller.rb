@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 	end
 
 	def check_notification
-		p '========================================================================================================================'
+		# p '========================================================================================================================'
 		current_user.update_attribute('last_checked',Time.now)
 		respond_to do |format|
 			format.json {render json:
