@@ -16,7 +16,7 @@
 <script>
 $('.modal').hide()
 $('.closeBtn').click(function(){
-  $('.modal').hide()
+  $('.modal').fadeOut()
 })
 </script>
 <% end %>
@@ -46,7 +46,7 @@ if("<%= (user_notifications current_user).length %>" == 0)
       .bind("ajax:success", function(data, status, xhr){
         // alert('you checked notifications.'+Date())
         $('.notification').css({'background':'#fff'}).attr('value',0)
-        $('.modal').show()
+        $('.modal').fadeIn()
       })
 </script>
           <% end %>

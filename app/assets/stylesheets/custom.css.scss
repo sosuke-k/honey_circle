@@ -2,11 +2,29 @@
 
 @font-face{
   font-family: "mplus-1c-thin";
-  src: url(http://l0o0l.info/material/fonts/Hannari.otf) format("opentype");
+  // src: url(http://l0o0l.info/material/fonts/Hannari.otf) format("opentype");
   src: url(http://l0o0l.info/material/fonts/mplus-1c-thin.ttf) format("opentype");
   font-weight: 100;
 }
+@font-face{
+  font-family: "common_icons";
+  src: url(http://l0o0l.info/material/fonts/common_icons.ttf) format("opentype");
+}
 
+
+.common_icons {
+    font-family: 'common_icons';
+    position:absolute;
+    z-index:100;
+    font-size: 22px;
+    margin:3px 11px;
+}
+.stars .common_icons{
+color: #ACD45A;
+}
+.interests .common_icons{
+color: #FA9696;
+}
 
 *{
   outline:none;
@@ -17,6 +35,7 @@ body,html{
   font-family: sans-serif;
   word-break: break-all;
   word-break: break-word;
+
 }
 h1,h2,h3,h4,h5,h6, .content{
   font-family:"mplus-1c-thin";
@@ -60,6 +79,12 @@ img{
 
 .interests, .interestedInfo{
   clear: both;
+}
+.staredInfo{
+  margin:-10px 0px;
+}
+.closeBtn{
+  border:outset 1px;
 }
 
 header{
@@ -106,6 +131,7 @@ header{
 
 input[type="submit"]{
   outline: 0px;
+  z-index: 0;
   // padding: 2px 7px 2px 7px;;
 }
 .pagination{
@@ -334,7 +360,7 @@ aside {
   color: inherit;
   background: none;
   cursor: pointer;
-  padding: 25px 80px;
+  // padding: 25px 80px;
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -390,11 +416,11 @@ button.btn, input[type="submit"].btn{
 //2014-01-01_20-05-53
 .star_submit{
   // background:url(http://l0o0l.info/material/icon/starIcon.png) no-repeat
-  background:url(http://l0o0l.info/material/icon/starIcon.png) no-repeat 8px -5px;
+  // background:url(http://l0o0l.info/material/icon/starIcon.png) no-repeat 8px -5px;
   padding: 2px 7px 2px 38px;
 }
 .interest_submit{
-  background:url(http://l0o0l.info/material/icon/interestIcon.png) no-repeat 10px 1px;
+  // background:url(http://l0o0l.info/material/icon/interestIcon.png) no-repeat 10px 1px;
   padding: 2px 7px 2px 38px;
 }
 

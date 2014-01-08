@@ -50,7 +50,7 @@
     <div class='interests'>
       <%= form_tag({:controller => 'interest', :action => 'toggle_interest'}, {:name => 'toggle_interest', :remote => true, :class => 'interest_button'}) do %>
       <input type="hidden" value="<%= micropost.id %>" name="micropost_id">
-      <%= submit_tag "興味ある！" %>
+      <%= submit_tag "興味ある！", {:class => 'interest_submit' } %>
       <% end %>
       <div class='interestInfo'>
         <span class='interestsNum'><%= micropost.interests.length %></span>人
