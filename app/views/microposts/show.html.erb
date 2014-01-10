@@ -30,6 +30,7 @@
 					<% else %>
 					<%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true}) do %>
 					<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
+					<span class="common_icons">b</span>
 
 					<%= submit_tag "一緒にやりたい！" , {:class => 'star_submit'} %>
 					<% end %>
@@ -54,6 +55,8 @@
 				<%= form_tag({:controller => 'interest', :action => 'toggle_interest'}, {:name => 'toggle_interest', :remote => true}) do %>
 				<input type="hidden" value="<%= @micropost.id %>" name="micropost_id">
 				<!-- <span class="js-toggle_interest" data-num="<%= @micropost.id %>">スターボタン</span> -->
+				<span class="common_icons">e</span>
+
 				<%= submit_tag "興味ある！", {:class => 'interest_submit'}  %>
 				<% end %>
 			<% end %>

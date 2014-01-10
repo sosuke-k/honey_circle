@@ -19,7 +19,7 @@ class StaticPagesController < ApplicationController
 	def api
 		microposts = Micropost.all
 		respond_to do |format|
-			format.json {render :json => microposts}
+			format.json {render :json => microposts, callback: "callback"}
 		end
 	end
 end
