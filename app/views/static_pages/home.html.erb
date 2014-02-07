@@ -20,14 +20,15 @@
 
 <% else %>
 <div class="center hero-unit">
-	<h1>あなたの『やりたい！』を<br>
-		誰かの『やりたい！』に。</h1>
+	<h1><span class="rotate">あなた, だれか</span>の『やりたい！』を<br>
+		<span class="rotate">だれか, あなた</span>の『やりたい！』に。</h1>
+		<!-- Super <span class="rotate">Simple, Customizable, Light Weight, Easy</span> Text Rotator with Style -->
 <br>
 	<h2>
 <!-- 		はじめての方は
 		<a href="/about">about</a>
 		までお飛びなさい -->
-	Honey Circle. は早稲田大学の情報なんとか学科の人向けに作られたサービスです。
+	Honey Circle. は早稲田大学の情報なんとか学科の人向けに作られた「やりたいことを共有できる」サービスです。
 	</h2>
 	<% if current_user %>
 	Welcome <%= current_user.name %>!
@@ -40,3 +41,10 @@
 
 <%#= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 <% end %>
+<script>
+$(".rotate").textrotator({
+  animation: "flip",
+  separator: ",",
+  speed: 2000
+});
+</script>
