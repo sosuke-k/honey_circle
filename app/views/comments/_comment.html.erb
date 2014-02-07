@@ -9,8 +9,6 @@
 		Posted <%= time_ago_in_words(comment.created_at) %> ago.
 	</span>
 	<% if current_user?(comment.user) %>
-	<%= link_to "delete", comment, method: :delete,
-	data: { confirm: "You sure?" },
-	title: comment.content %>
+		<%= link_to "d", comment, method: :delete, data: { confirm: '本当に消してしまうん？' }, title: comment.content, class:"common_icons", style:"z-index:10" %>
 	<% end %>
 </li>

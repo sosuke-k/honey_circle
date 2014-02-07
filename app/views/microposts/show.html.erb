@@ -8,6 +8,9 @@
 				<%#= @micropost.created_at %> <br>
 				<%= @micropost.content %>
 				<%#= @user.email %>
+				<% if current_user == @micropost.user %>
+					<%= link_to "d", @micropost, method: :delete, data: { confirm: '本当に消してしまうん？' }, title: @micropost.content, class:"common_icons", style:"z-index:10" %>
+				<% end %>
 			</h1>
 		</section>
 		<hr>
