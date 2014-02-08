@@ -22,7 +22,8 @@ var colors = ['#64C9B3','#74BD88','#D7B047','#CF7F5B']
 
 $(window).load(function() {
 	for (var i = 0; i < $('.timestamp').length; i++) {
-		$('.timestamp').eq(i).css({'background':colors[i % colors.length]})
+		// $('.timestamp').eq(i).css({'background':colors[i % colors.length]})
+		$('.timestamp').eq(i).css({'background':"#ccc"})
 	}
   // setTimeout($('.alert').fadeOut(), 5000)
 });

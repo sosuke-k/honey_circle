@@ -1,28 +1,26 @@
 <% if signed_in? %>
-<div class="row">
-	<aside class="span4">
-		<section>
-			<%= render 'shared/user_info' %>
-		</section>
-		<section>
-			<%= render 'shared/micropost_form' %>
-		</section>
-	<hr>
+	<div class="row">
+		<aside class="span4">
+			<section>
+				<%= render 'shared/user_info' %>
+			</section>
+			<section>
+				<%= render 'shared/micropost_form' %>
+			</section>
+		<hr>
 
-	<%= render 'layouts/newsfeed' %>
+		<%= render 'layouts/newsfeed' %>
 
-	</aside>
-	<div class="span8">
-		<h3>やりたいこと(<%= Micropost.all.length %>)</h3>
-		<%= render 'shared/feed' %>
+		</aside>
+		<div class="span8">
+			<h3>やりたいこと(<%= Micropost.all.length %>)</h3>
+			<%= render 'shared/feed' %>
+		</div>
 	</div>
-</div>
-
 <% else %>
 <div class="center hero-unit">
 	<h1><span class="rotate">あなた, だれか</span>の『やりたい！』を<br>
 		<span class="rotate">だれか, あなた</span>の『やりたい！』に。</h1>
-		<!-- Super <span class="rotate">Simple, Customizable, Light Weight, Easy</span> Text Rotator with Style -->
 <br>
 	<h2>
 <!-- 		はじめての方は
@@ -31,11 +29,11 @@
 	Honey Circle. は早稲田大学の情報なんとか学科の人向けに作られた「やりたいことを共有する」サービスです。
 	</h2>
 	<% if current_user %>
-	Welcome <%= current_user.name %>!
-	<%= link_to "Sign Out", signout_path %>
+		Welcome <%= current_user.name %>!
+		<%= link_to "Sign Out", signout_path %>
 	<% else %>
-	<%= link_to "Sign up now with ついったアカウント!", "/auth/twitter",
-	class: "btn btn-2i btn-signin" %>
+		<%= link_to "Sign up now with ついったアカウント!", "/auth/twitter",
+		class: "btn btn-2i btn-signin" %>
 	<% end %>
 </div>
 
