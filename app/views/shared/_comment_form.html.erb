@@ -2,7 +2,8 @@
 <%= f.hidden_field :micropost_id, :value => @micropost.id %>
 <%= render 'shared/error_messages', object: f.object %>
 <div class="field">
-	<%= f.text_area :content, placeholder: "Compose new comment..." %>
+	<%= f.text_area :content, placeholder: "コメント書きやがれください..." %>
+
 </div>
 <%= f.submit "Post", class: "btn btn-2i" %>
 <% @comment.micropost_id = @micropost.id %>
