@@ -1,0 +1,28 @@
+	<div class="newsfeeds">
+		<h3>新着情報</h3>
+		<% for item in get_newsfeed  %>
+			<!-- <%#= time_ago_in_words(item) %> ago. <br> -->
+			<div class="newsfeed">
+			<%= link_to image_tag(item.user.image,:size => "22x22"), item.user %>
+			<% if item.class == Interest %>
+				<!-- <span class="action">was interested in</span> -->
+				<span class="interests action">→<span class="common_icons">a</span>→</span>
+				<!-- <%= link_to 'the idea', item.micropost %> of-->
+				<%= link_to image_tag(item.micropost.user.image,:size => "22x22"),item.micropost.user %> <span class="truncate"><%= link_to item.micropost.content,  item.micropost %></span>
+			<% elsif item.class == Star %>
+				<!-- <span class="action">wanted to join</span> -->
+				<span class="stars action">→<span class="common_icons">b</span>→</span>
+				<!-- <%= link_to 'the idea', item.micropost %> of-->
+				<%= link_to image_tag(item.micropost.user.image,:size => "22x22"),item.micropost.user %> <span class="truncate"><%= link_to item.micropost.content,  item.micropost %></span>
+			<% elsif item.class == Micropost %>
+				<span class="action">posted <%= link_to '['+ item.content, item %></span>
+			<% elsif item.class == Comment %>
+				<!-- <span class="action">commented <%= link_to 'the idea', item.micropost %> of</span>-->
+				<span class="comments action">→<span class="common_icons">h</span>→</span>
+				<%= link_to image_tag(item.micropost.user.image,:size => "22x22"), item.micropost.user %> <span class="truncate"><%= link_to item.micropost.content,  item.micropost %></span>
+			<% end %>
+			<br>
+			<div class="flr newsTimestamp"><%= time_ago_in_words(item.updated_at) %> ago.</div> <br><br>
+			</div>
+		<% end %>
+	</div>
