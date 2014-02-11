@@ -532,3 +532,21 @@ button.btn, input[type="submit"].btn{
 .responses{
   margin-top:30px;
 }
+
+// 2014-02-11
+.modal{
+  .modal-header{
+    // border-bottom: 1px solid #888;
+  }
+}
+
+.user_icon_in_menu{
+  margin-left: -3px;
+  img{
+    width: 30px;
+    margin: -3px 0;
+    &:hover{
+      border-radius: 50%;
+    }
+  }
+}
