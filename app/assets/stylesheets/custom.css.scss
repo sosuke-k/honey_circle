@@ -37,6 +37,11 @@ color: #FA9696;
 *{
   outline:none;
 }
+a{
+  &:hover{
+    text-decoration: none;
+  }
+}
 
 body,html{
   font-weight: 100;
@@ -79,7 +84,7 @@ img{
 
 .starInfo, .interestInfo{
   float: left;
-  margin:5px;
+  margin: 3px;
 }
 .star_button, .interest_button{
   float: left;
@@ -174,6 +179,7 @@ input[type="submit"]{
   clear:both;
   border-top: 1px solid #eee;
   padding-top: 5px;
+  height:63px;
   .common_icons{
     position: static;
     font-size: 18px;
@@ -362,7 +368,7 @@ input {
 .content {
   // display: block;
   font-size: 32px;
-  line-height: 48px;
+  line-height: 42px;
   margin:15px 0;
 }
 .timestamp {
