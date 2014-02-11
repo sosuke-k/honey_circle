@@ -2,13 +2,7 @@
 <div class="row">
 	<aside class="span4">
 		<section>
-			<h1>
-				<%= showProfImage @user %><br>
-				<%= @user.name %><br>
-				<%#= @user.created_at %>
-				<%= link_to "@"+@user.nickname , "http://twitter.com/"+@user.nickname, :target=>["_blank"] %>
-				<%#= @user.email %>
-			</h1>
+			<%= render 'shared/user_info', user: @user %>
 		</section>
 
 		<h3>user action</h3>

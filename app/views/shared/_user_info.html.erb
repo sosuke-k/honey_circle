@@ -1,12 +1,16 @@
-<a href="<%= user_path(current_user) %>">
-	<%= showProfImage current_user %>
-</a>
-<h1>
+<span class='userinfo'>
+	<a href="<%= user_path(user) %>">
+		<%= showProfImage user %>
+	</a>
+	<span class='username'><%= link_to '@'+user.nickname, user%></span>
+</span>
+<br>
+<!-- <h1>
 	<%= link_to '@'+current_user.nickname , current_user%><br>
 	<%#= link_to '  @'+current_user.nickname+' ' , current_user  %>
 </h1>
-<span>
-	<%= link_to "view my profile", current_user %>
+ --><span>
+	<%#= link_to "view my profile", current_user %>
 </span>
 <span>
 	<%#= pluralize(current_user.microposts.count, "micropost") %>
