@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	has_many :stared_posts, :through => :stars, :source => :micropost
 	has_many :interests, :dependent => :destroy
 	has_many :interested_posts, :through => :interests, :source => :micropost
+	acts_as_paranoid
 	def starable_for?(micropost)
 		micropost && micropost.user != self && !stars.exists?(:micropost_id => micropost.id)
 	end

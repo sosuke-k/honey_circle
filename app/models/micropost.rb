@@ -1,6 +1,7 @@
 class Micropost < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments
+	acts_as_paranoid
 	default_scope -> { order('created_at DESC') }
 	validates :content, presence: true, length: { maximum: 80 }
 	validates :detail, length: { maximum: 65535 }
