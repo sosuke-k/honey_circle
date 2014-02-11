@@ -15,7 +15,7 @@
 				<!-- <%= link_to 'the idea', item.micropost %> of-->
 				<%= link_to image_tag(item.micropost.user.image,:size => "22x22"),item.micropost.user %> <span class="truncate"><%= link_to item.micropost.content,  item.micropost %></span>
 			<% elsif item.class == Micropost %>
-				<span class="action">posted <%= link_to '['+ item.content, item %></span>
+				<span class="action">posted <%= link_to item.content, item %></span>
 			<% elsif item.class == Comment %>
 				<!-- <span class="action">commented <%= link_to 'the idea', item.micropost %> of</span>-->
 				<span class="comments action">→<span class="common_icons">h</span>→</span>
