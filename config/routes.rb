@@ -6,10 +6,6 @@ SampleApp::Application.routes.draw do
   resources :stars, only: [:create, :destroy]
   resources :interests, only: [:create, :destroy]
   root  'static_pages#home'
-  scope "/:user_nickname" do
-    get "/" => "users#show"
-    resources :micropost
-  end
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
@@ -20,6 +16,10 @@ SampleApp::Application.routes.draw do
   match 'toggle_star', :to => 'star#toggle_star', :via => [:get, :post]
   match 'toggle_interest', :to => 'interest#toggle_interest', :via => [:get, :post]
   match 'check_notification', :to => 'users#check_notification', :via => [:get, :post]
+  scope "/:user_nickname" do
+    get "/" => "users#show"
+    resources :micropost
+  end
 
   #omniauth
   get "/auth/:provider/callback" => "sessions#create"
