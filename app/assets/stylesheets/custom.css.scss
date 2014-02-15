@@ -23,14 +23,34 @@
 form .common_icons{
     margin:3px 11px;
 }
-.stars .common_icons{
-color: #ACD45A;
+
+.responsesInfo{
+  .common_icons{
+    position:static;
+  }
+  a{
+    // vertical-align: middle;
+  }
+  p{
+    display: flex;
+  }
 }
-.interests .common_icons{
-color: #FA9696;
+.stars,
+.staredInfo{
+  .common_icons{
+    color: #ACD45A;
+    font-size: 21px;
+  }
+}
+.interests,
+.interestedInfo{
+  .common_icons{
+    color: #FFB135;
+    font-size: 24px;
+  }
 }
 .newsfeed .comments .common_icons{
-  color:#FFC661;
+  color: #FE8299;
   font-size: 20px;
 }
 .create .common_icons{
@@ -190,7 +210,7 @@ input[type="submit"]{
   height:63px;
   .common_icons{
     position: static;
-    font-size: 18px;
+    font-size: 20px;
   }
   .truncate{
     word-break: break-all;
@@ -413,10 +433,11 @@ aside {
   // font-weight: 700;
   outline: none;
   position: relative;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
   text-shadow: none;
+  box-shadow: 0 4px #025883;
 }
 .btn-2i {
   border-radius: 50%;
@@ -434,21 +455,19 @@ aside {
 
 .btn-2i:hover {
   outline: none;
-  background:#0C9EE7;
-  box-shadow: 0 4px #025883;
-  // top: 2px;
+  background:#0DB1D3;
   color:#fff;
 }
 
 .btn-2i:active {
-  background:#0C9EE7;
+  background:#0DB1D3;
   box-shadow: 0 0 #025883;
   top: 4px;
   color:#fff;
 }
 .btn-2i:focus {
   color:#fff;
-  background:#0C9EE7;
+  background:#0DB1D3;
 }
 button.btn, input[type="submit"].btn{
   width: 70px;
