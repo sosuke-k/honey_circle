@@ -1,8 +1,8 @@
 <span class='userinfo'>
-	<a href="<%= user.nickname %>">
+	<a href="<%= '/'+user.nickname %>">
 		<%= showProfImage user %>
 	</a>
-	<span class='username'><%= link_to '@'+user.nickname, user.nickname%></span>
+	<span class='username'><%= link_to '@'+user.nickname, '/'+user.nickname%></span>
 </span>
 <br>
 <!-- <h1>
