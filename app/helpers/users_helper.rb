@@ -38,7 +38,7 @@ module UsersHelper
     #   # returnedArr.push(i.micropost.user.nickname)
     #   returnedArr.push('you got ' + i.class.to_s + ' from ' + i.user.nickname )
     # }
-    returnedArr = arr
+    returnedArr = arr.reverse
     return returnedArr
   end
 
