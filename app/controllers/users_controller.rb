@@ -9,7 +9,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+
+		if params[:id]
+			@user = User.find(params[:id])
+		elsif params[:user_nickname]
+			@user = User.where(nickname:"#{params[:user_nickname]}").first
+		end
 		@microposts = @user.microposts.paginate(page: params[:page])
 	end
 

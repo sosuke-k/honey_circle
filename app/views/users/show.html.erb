@@ -5,27 +5,21 @@
 			<%= render 'shared/user_info', user: @user %>
 		</section>
 
-		<h3>user action</h3>
+<!-- 		<h3>user actions</h3>
 		<% for item in user_actions @user  %>
-			<div class="newsfeed">
-				<%= item.class %> <br>
-				<div class="flr newsTimestamp"><%= time_ago_in_words(item.updated_at) %> ago.
-				</div> <br><br>
+			<div class="newsfeeds">
+				<%#= render 'shared/news_feed_item', item: item %>
 			</div>
 		<% end %>
-		<h3>user action passive</h3>
+ -->		<!-- <h3>user action passive</h3>
 		<% for item in user_actions_passive @user  %>
-		<div class="newsfeed">
-			<%= '@'+@user.nickname %>
-			<span>got</span> <%= item.class %>
+		<div class="newsfeeds">
 			<% if item != nil %>
-			<%= 'by @'+item.user.nickname %> <br>
-				<div class="flr newsTimestamp">
-					<%= time_ago_in_words(item.updated_at) %> ago.
-				</div> <br><br>
+			<%#= render 'shared/news_feed_item', item: item %>
+
 			<% end %>
 		</div>
-		<% end %>
+		<% end %> -->
 
 	</aside>
 	<div class="span8">

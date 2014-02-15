@@ -6,6 +6,10 @@ SampleApp::Application.routes.draw do
   resources :stars, only: [:create, :destroy]
   resources :interests, only: [:create, :destroy]
   root  'static_pages#home'
+  scope "/:user_nickname" do
+    get "/" => "users#show"
+    resources :micropost
+  end
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
