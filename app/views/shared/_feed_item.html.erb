@@ -1,7 +1,7 @@
 <li id="<%= feed_item.id %>">
-   <%= link_to image_tag(feed_item.user.image ,:size => "36x36"), feed_item.user %>
+   <%= link_to image_tag(feed_item.user.image ,:size => "36x36"), feed_item.user.nickname %>
     <span class="user">
-      <%= link_to feed_item.user.name+' ( @'+feed_item.user.nickname+' )' , feed_item.user %>
+      <%= link_to feed_item.user.name+' ( @'+feed_item.user.nickname+' )' , feed_item.user.nickname %>
     </span>
     <br>
     <div class="contentWrapper">
@@ -20,7 +20,7 @@
           <span class='starsNum'><%= feed_item.stars.length %></span>人
         </p>
         <% feed_item.stars.each do |s| %>
-          <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+          <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user.nickname %>
         <% end %>
       <% end %>
     </div>
@@ -32,7 +32,7 @@
       <span class='interestsNum'><%= feed_item.interests.length %></span>人
          </p>
       <% feed_item.interests.each do |s| %>
-        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user.nickname %>
         <% end %>
       </div>
     <% end %>
@@ -46,7 +46,7 @@
     <div class='starInfo'>
       <span class='starsNum'><%= feed_item.stars.length %></span>人
       <% feed_item.stars.each do |s| %>
-        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user.nickname %>
           <% if s.user == current_user %>
             <script>
               $('#'+<%= feed_item.id %>).children('.stars').children('form').children('input').addClass('already')
@@ -66,7 +66,7 @@
       <div class='interestInfo'>
         <span class='interestsNum'><%= feed_item.interests.length %></span>人
         <% feed_item.interests.each do |s| %>
-        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user %>
+        <%= link_to image_tag(s.user.image ,:size => "22x22"), s.user.nickname %>
         <% if s.user == current_user %>
             <script>
               $('#'+<%= feed_item.id %>).children('.interests').children('form').children('input').addClass('already')
