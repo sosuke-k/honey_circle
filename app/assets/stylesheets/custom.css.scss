@@ -31,7 +31,10 @@ color: #FA9696;
 }
 .newsfeed .comments .common_icons{
   color:#FFC661;
-  font-size: 15px;
+  font-size: 20px;
+}
+.create .common_icons{
+  color: #C47C11;
 }
 
 *{
@@ -387,6 +390,7 @@ aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
+    resize: vertical;
   }
 }
 
@@ -449,8 +453,11 @@ button.btn, input[type="submit"].btn{
 }
 
 .span4 input[type="submit"],{
-  width: 70px;
+  width: 100%;
   outline: 0px;
+  margin-top: 8px;
+  border-radius: 5px;
+  height: 30px;
 }
 
 //2014-01-01_20-05-53

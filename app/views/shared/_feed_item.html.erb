@@ -60,7 +60,7 @@
     <div class='interests'>
       <%= form_tag({:controller => 'interest', :action => 'toggle_interest'}, {:name => 'toggle_interest', :remote => true, :class => 'interest_button'}) do %>
       <input type="hidden" value="<%= feed_item.id %>" name="micropost_id">
-      <span class="common_icons">e</span>
+      <span class="common_icons">q</span>
       <%= submit_tag "興味ある！", {:class => 'interest_submit' } %>
       <% end %>
       <div class='interestInfo'>
