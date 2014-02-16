@@ -1,28 +1,32 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-	<aside class="span4">
-		<section>
-			<%= render 'shared/user_info', user: @user %>
-		</section>
-
-<!-- 		<h3>user actions</h3>
-		<% for item in user_actions @user  %>
-			<div class="newsfeeds">
-				<%#= render 'shared/news_feed_item', item: item %>
-			</div>
-		<% end %>
- -->		<!-- <h3>user action passive</h3>
-		<% for item in user_actions_passive @user  %>
-		<div class="newsfeeds">
-			<% if item != nil %>
-			<%#= render 'shared/news_feed_item', item: item %>
-
+	<div class="div" style='float:left'>
+		<aside class="span4" style='float:none'>
+			<section>
+				<%= render 'shared/user_info', user: @user %>
+			</section>
+		</aside>
+		<aside class="span4" style=''>
+		<!-- 		<h3>user actions</h3>
+			<% for item in user_actions @user  %>
+				<div class="newsfeeds">
+					<%#= render 'shared/news_feed_item', item: item %>
+				</div>
 			<% end %>
-		</div>
-		<% end %> -->
+		 -->		<!-- <h3>user action passive</h3>
+			<% for item in user_actions_passive @user  %>
+			<div class="newsfeeds">
+				<% if item != nil %>
+				<%#= render 'shared/news_feed_item', item: item %>
 
-	</aside>
-	<div class="span8">
+				<% end %>
+			</div>
+			<% end %> -->
+
+			<%= render 'layouts/newsfeed' %>
+
+		</aside>
+		</div><div class="span8">
 		<% if @user.microposts.any? %>
 			<h3>@<%= @user.nickname %> (<%= @user.microposts.count %>)</h3>
 			<%= render partial: 'shared/feed' %>
