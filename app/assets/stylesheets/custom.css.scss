@@ -32,6 +32,7 @@ form .common_icons{
     // vertical-align: middle;
   }
   p{
+    margin: 0 10px 10px 4px;
     display: flex;
   }
 }
@@ -468,7 +469,7 @@ aside {
 }
 .btn-2i {
   border-radius: 50%;
-  background:#0C9EE7;
+  background:#0DB1D3;
   // width: 190px;
   height: 70px;
   padding: 0;
@@ -482,18 +483,20 @@ aside {
 
 .btn-2i:hover {
   outline: none;
-  background:#0DB1D3;
-  color:#fff;
+  // background:#0C9EE7;
+  background:#0DB1D3;;
+  color:#333;
+  // box-shadow: 0 6px #025883;
 }
 
 .btn-2i:active {
   background:#0DB1D3;
   box-shadow: 0 0 #025883;
   top: 4px;
-  color:#fff;
+  color:#333;
 }
 .btn-2i:focus {
-  color:#fff;
+  color:#333;
   background:#0DB1D3;
 }
 button.btn, input[type="submit"].btn{

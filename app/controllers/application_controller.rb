@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
   		arr.sort_by!{|obj| obj.updated_at}
   		arr.reverse!
   		(0..9).each{|i| returnedArr.push(arr[i]) }
+      p "aaaaaaaaaaaaaaaaaaaaa"
+      (0..9).each{|i| puts returnedArr[i].class}
   		return returnedArr
   	rescue
   		return []

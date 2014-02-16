@@ -27,8 +27,10 @@ module UsersHelper
     arr.push(@comments).push(@stars).push(@interests) #配列の中に配列をぶっこむ
     arr.flatten! # 多次元配列を1次元化
     arr.each_with_index{|i,j|
-      if (i.micropost.user != user) #ログインユーザ以外は消す
-        arr[j] = nil
+      if i.micropost != nil
+        if (i.micropost.user != user) #ログインユーザ以外は消す
+          arr[j] = nil
+        end
       end
     }
     arr.compact! # nilを消去

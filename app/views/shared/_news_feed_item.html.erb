@@ -12,8 +12,9 @@
 		<span class="create action">→<span class="common_icons">s</span><%= link_to item.content, item %></span>
 	<% elsif item.class == Comment %>
 		<span class="comments action">→<span class="common_icons">h</span>→</span>
-		<%= link_to image_tag(item.micropost.user.image,:size => "22x22"), item.micropost.user.nickname %>
+		<%= link_to image_tag( item.micropost.user.image,:size => "22x22"), item.micropost.user.nickname %>
 		<span class="truncate"><%= link_to item.micropost.content, item.micropost %></span>
+	<% else %>
 	<% end %>
 	<br>
 	<div class="flr newsTimestamp"><%= time_ago_in_words(item.updated_at) %> ago.</div>

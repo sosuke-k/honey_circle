@@ -8,9 +8,7 @@
 				<%= render 'shared/micropost_form' %>
 			</section>
 		<hr>
-
 		<%= render 'layouts/newsfeed' %>
-
 		</aside>
 		<div class="span8">
 			<h3>やりたいこと(<%= Micropost.all.length %>)</h3>
@@ -18,14 +16,11 @@
 		</div>
 	</div>
 <% else %>
-<div class="center hero-unit">
-	<h1><span class="rotate">あなた, だれか</span>の『やりたい！』を<br>
-		<span class="rotate">だれか, あなた</span>の『やりたい！』に。</h1>
-<br>
+	<div class="center hero-unit">
+		<h1><span class="rotate">あなた, だれか</span>の『やりたい！』を<br>
+			<span class="rotate">だれか, あなた</span>の『やりたい！』に。</h1>
+	<br>
 	<h2>
-<!-- 		はじめての方は
-		<a href="/about">about</a>
-		までお飛びなさい -->
 	Honey Circle. は早稲田大学の情報なんとか学科の人向けに作られた「やりたいことを共有する」サービスです。
 	</h2>
 	<% if current_user %>
