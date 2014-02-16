@@ -64,7 +64,7 @@ if("<%= (user_notifications current_user).length %>" == 0)
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Profile", '/'+current_user.nickname %></li>
                 <!-- <li><%#= link_to "Settings", edit_user_path(current_user) %></li> -->
                 <li class="divider"></li>
                 <li>

@@ -14,7 +14,6 @@
 
 .common_icons {
     font-family: 'common_icons';
-    position:absolute;
     z-index:-10;
     font-size: 22px;
     margin: 0px 3px;
@@ -22,11 +21,12 @@
 
 form .common_icons{
     margin:3px 11px;
+    position:absolute;
 }
 
 .responsesInfo{
   .common_icons{
-    position:static;
+    // position:static;
   }
   a{
     // vertical-align: middle;
@@ -36,21 +36,24 @@ form .common_icons{
   }
 }
 .stars,
-.staredInfo{
+.starsInfo{
   .common_icons{
     color: #ACD45A;
     font-size: 21px;
   }
 }
 .interests,
-.interestedInfo{
+.interestsInfo{
   .common_icons{
     color: #FFB135;
     font-size: 24px;
   }
 }
-.newsfeed .comments .common_icons{
+
+.comments .common_icons{
   color: #FE8299;
+}
+.newsfeed .comments .common_icons{
   font-size: 20px;
 }
 .create .common_icons{
@@ -105,7 +108,7 @@ img{
   display:inline;
 }
 
-.starInfo, .interestInfo{
+.starsInfo, .interestsInfo{
   float: left;
   margin: 3px;
 }
@@ -113,13 +116,15 @@ img{
   float: left;
 }
 
-.interests, .interestedInfo{
+.interests{
   clear: both;
+}
+.interests, .interestsInfo{
   height: 26px;
   margin-bottom: 4px;
 }
-.staredInfo{
-  margin:-10px 0px;
+.starsInfo{
+  // margin:-10px 0px;
 }
 .closeBtn{
   border:outset 1px;
@@ -227,8 +232,25 @@ input[type="submit"]{
   padding:0 4px;
 }
 
-.comments li{
-  clear: both;
+.comments{
+  margin-top: 30px;
+  h5{
+    clear: both;
+    font-size: 28px;
+    font-weight: 100;
+    letter-spacing: 15px;
+    .common_icons{
+        font-size: 36px;
+    }
+  }
+  li{
+    clear: both;
+    .trash{
+      .common_icons{
+        color: #7D5100;
+      }
+    }
+  }
 }
 /* mixins, variables, etc. */
 
@@ -376,6 +398,12 @@ input {
 .microposts {
   list-style: none;
   margin: 10px 0 0 0;
+  .responses{
+    margin-top:30px;
+  }
+  .timestamp{
+    margin-top: -35px;
+  }
 
   li {
     padding: 10px 0;
@@ -403,7 +431,6 @@ input {
   float: right;
   // border-radius: 10px;
   clear: both;
-  margin-top: -35px;
 }
 .gravatar {
   float: left;
@@ -558,7 +585,10 @@ button.btn, input[type="submit"].btn{
 }
 // 2014-02-08
 .responses{
-  margin-top:30px;
+  overflow: hidden;
+  .no-btn{
+    clear: both;
+ ; }
 }
 
 // 2014-02-11
@@ -583,4 +613,8 @@ button.btn, input[type="submit"].btn{
       border-radius: 50%;
     }
   }
+}
+
+.detail{
+  margin:30px 0;
 }

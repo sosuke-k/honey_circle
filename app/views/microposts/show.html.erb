@@ -20,8 +20,6 @@
 				<p><%= simple_format @micropost.detail %></p>
 			</div>
 		<% end %>
-			<br>
-
 			<%= render partial: 'shared/responses', locals: { feed_item: @micropost } %>
 
 		<script>
@@ -72,11 +70,12 @@
 		// .bind("ajax:failure", function(xhr){alert('failure')});
 		</script>
 
-
-		<ol class="comments">
-			<h5>こめんと<span class="common_icons">h</span></h5>
-			<%= render @comments %>
-		</ol>
+		<div class="comments">
+			<h5>Comments<span class="common_icons">h</span></h5>
+			<ol>
+				<%= render @comments %>
+			</ol>
+			</div>
 		<%= will_paginate @comments %>
 	<section>
 		<%= render 'shared/comment_form' %>

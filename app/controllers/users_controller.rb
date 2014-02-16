@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		elsif params[:user_nickname]
 			@user = User.where(nickname:"#{params[:user_nickname]}").first
 		end
-		@microposts = @user.microposts.paginate(page: params[:page])
+		@feed_items = @user.microposts.paginate(page: params[:page])
 	end
 
 	def create

@@ -1,7 +1,7 @@
 <li id="<%= feed_item.id %>">
-   <%= link_to image_tag(feed_item.user.image ,:size => "36x36"), feed_item.user.nickname %>
+   <%= link_to image_tag(feed_item.user.image ,:size => "36x36"), '/'+feed_item.user.nickname %>
     <span class="user">
-      <%= link_to feed_item.user.name+' ( @'+feed_item.user.nickname+' )' , feed_item.user.nickname %>
+      <%= link_to feed_item.user.name+' ( @'+feed_item.user.nickname+' )' , '/'+feed_item.user.nickname %>
     </span>
     <br>
     <div class="contentWrapper">

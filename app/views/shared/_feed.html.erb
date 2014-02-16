@@ -6,27 +6,28 @@
 <% end %>
 <script>
 		current_userID = <%= current_user.id %>;
+		current_user_nickname = "<%= current_user.nickname %>";
 
 		jQuery.each(['star','interest'], function (i,val) {
 			$("form[name=\"toggle_"+val+"\"]")
 			// .bind("ajax:loading", function(xhr){alert('loading')})
 			.bind("ajax:success", function(data, status, xhr){
 				var klass = $('#'+status.micropost_id).children('.responses').children('.'+val+'s');
-				var num = klass.children('.'+val+'Info').children('.'+val+'sNum').html();
+				var num = klass.children('.'+val+'sInfo').children('.'+val+'sNum').html();
 
 				if(status.action == 'add'){
 					var imgURL = "<%= current_user.image %>"
-					var imgDOM = "<a href=/users/"+current_userID+"><img src="+imgURL+" alt='' width='22' /></a> "
-					klass.children('.'+val+'Info').append(imgDOM);
+					var imgDOM = "<a href=/"+current_user_nickname+"><img src="+imgURL+" alt='' width='22' /></a> "
+					klass.children('.'+val+'sInfo').append(imgDOM);
 					// 数字インクリメント
-						klass.children('.'+val+'Info').children('.'+val+'sNum').html(parseInt(num)+1)
-
+						klass.children('.'+val+'sInfo').children('.'+val+'sNum').html(parseInt(num)+1)
 						klass.children('form').children('input').addClass('already')
 
 				}else if (status.action == 'remove') {
-					klass.find("a[href=\"/users/"+current_userID+"\"]").remove()
+					// $("."+val+"s").find("a[href=\"/users/"+current_user_nickname+"\"]").remove()
+					klass.find('a[href=\"/'+current_user_nickname+'\"]').remove()
 					// 数字デクリメント
-						klass.children('.'+val+'Info').children('.'+val+'sNum').html(parseInt(num)-1)
+						klass.children('.'+val+'sInfo').children('.'+val+'sNum').html(parseInt(num)-1)
 						klass.children('form').children('input').removeClass('already')
 				};
 			})
