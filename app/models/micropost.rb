@@ -11,4 +11,6 @@ class Micropost < ActiveRecord::Base
 	has_many :stared_users, :through => :stars, :source => :user
 	has_many :interests, :dependent => :destroy
 	has_many :interested_users, :through => :interests, :source => :user
+	has_many :comments, :dependent => :destroy
+	#has_many :stared_users, :through => :stars, :source => :user
 end

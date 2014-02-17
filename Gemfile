@@ -9,7 +9,7 @@ gem 'omniauth-twitter'
 gem 'oauth'
 gem 'twitter'
 gem 'spring'
-#gem 'paranoia', '~> 2.0'
+gem 'paranoia', '~> 2.0'
 
 	gem 'sqlite3', '1.3.7'
 	gem 'bootstrap-sass', '2.3.2.0'
