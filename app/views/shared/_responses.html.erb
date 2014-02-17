@@ -1,0 +1,64 @@
+    <div class="responses">
+  <% if current_user?(feed_item.user) %>
+    <!-- 一緒にやりたい人がいる場合 -->
+    <div class="starsInfo responsesInfo no-btn">
+      <% if feed_item.stars.any? %>
+        <p style='float: left;'><span class="common_icons">b</span>:&nbsp;
+          <span class='starsNum'><%= feed_item.stars.length %></span>人
+        </p>
+        <% feed_item.stars.each do |s| %>
+          <%= link_to image_tag(s.user.image ,:size => "22x22"), '/'+s.user.nickname %>
+        <% end %>
+      <% end %>
+    </div>
+    <!-- 興味ある人がいる場合 -->
+    <% if feed_item.interests.any? %>
+    <div class="interestsInfo responsesInfo no-btn">
+      <p style='float: left;'><span class="common_icons">n</span>:&nbsp;
+      <span class='interestsNum'><%= feed_item.interests.length %></span>人
+         </p>
+      <% feed_item.interests.each do |s| %>
+        <%= link_to image_tag(s.user.image ,:size => "22x22"), '/'+s.user.nickname %>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+  <div class='stars'>
+    <%= form_tag({:controller => 'star', :action => 'toggle_star'}, {:name => 'toggle_star', :remote => true, :class => 'star_button'}) do %>
+      <input type="hidden" value="<%= feed_item.id %>" name="micropost_id">
+      <span class="common_icons">b</span>
+      <%= submit_tag "一緒にやりたい！", {:class => 'star_submit' } %>
+    <% end %>
+    <div class='starsInfo responsesInfo'>
+      <span class='starsNum'><%= feed_item.stars.length %></span>人
+      <% feed_item.stars.each do |s| %>
+        <%= link_to image_tag(s.user.image ,:size => "22x22"), '/'+s.user.nickname %>
+          <% if s.user == current_user %>
+            <script>
+              $('#'+<%= feed_item.id %>).children('.responses').children('.stars').children('form').children('input').addClass('already')
+            </script>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+    <!-- 興味ある！ -->
+    <div class='interests'>
+      <%= form_tag({:controller => 'interest', :action => 'toggle_interest'}, {:name => 'toggle_interest', :remote => true, :class => 'interest_button'}) do %>
+      <input type="hidden" value="<%= feed_item.id %>" name="micropost_id">
+      <span class="common_icons">n</span>
+      <%= submit_tag "興味ある！", {:class => 'interest_submit' } %>
+      <% end %>
+      <div class='interestsInfo responsesInfo'>
+        <span class='interestsNum'><%= feed_item.interests.length %></span>人
+        <% feed_item.interests.each do |s| %>
+        <%= link_to image_tag(s.user.image ,:size => "22x22"), '/'+s.user.nickname %>
+        <% if s.user == current_user %>
+            <script>
+              $('#'+<%= feed_item.id %>).children('.responses').children('.interests').children('form').children('input').addClass('already')
+            </script>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    </div>
