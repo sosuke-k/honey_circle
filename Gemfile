@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 
+gem 'execjs'
+gem 'therubyracer', platforms: :ruby
+
 gem 'rails', '4.0.0'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.6'
